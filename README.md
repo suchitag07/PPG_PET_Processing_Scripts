@@ -3,6 +3,9 @@
 - This document contains step-by-step instructions for processing Amyloid (FBB) and Tau (FTP) PET data provided by the USC PPG cohort. The pipeline covers inventory, organization, FreeSurfer processing/ROI extraction, PET-MRI coregistration, and SUVR calculation. All script call locations, required inputs, expected outputs, and directory structures are described in detail.
 - Note: These scripts were written and troubleshooted across the period of July 2024 - August 2025 under the supervison of Dr. Ioannis Pappas. Any major changes to the PET IDA data format post that period will need to be accounted for. 
 
+## Code Usage
+This code is shared for reference. For reuse, adaptation, or collaboration, please reach out.
+
 ```bash
 								OVERVIEW OF PPG PET PIPELINE SCRIPTS
 =========================================================================================================
