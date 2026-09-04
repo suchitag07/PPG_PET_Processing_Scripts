@@ -1,10 +1,9 @@
 ### PPG PET Pipeline Instructions: Amyloid (FBB) and Tau-PET (FTP)
 
-- This document contains step-by-step instructions for processing Amyloid (FBB) and Tau (FTP) PET data provided by the USC PPG cohort. The pipeline covers inventory, organization, FreeSurfer processing/ROI extraction, PET-MRI coregistration, and SUVR calculation. All script call locations, required inputs, expected outputs, and directory structures are described in detail.
-- Note: These scripts were written and troubleshooted across the period of July 2024 - August 2025 under the supervison of Dr. Ioannis Pappas. Any major changes to the PET IDA data format post that period will need to be accounted for. 
+- This document contains step-by-step instructions for processing Amyloid (FBB) and Tau (FTP) PET data provided by the USC PPG cohort. The pipeline covers inventory, organization, preprocessing, as well as calculation of SUVRs. All script call locations, required inputs, expected outputs, and directory structures are described in detail. 
+- Note: These scripts were written and troubleshooted across the period of July 2024 - August 2025 under the supervison of Dr. Ioannis Pappas. 
 
-### Code Usage
-This code is shared for reference. For reuse, adaptation, or collaboration, please reach out.
+### Pipeline Scripts Overview
 
 ```bash
 								OVERVIEW OF PPG PET PIPELINE SCRIPTS
@@ -14,8 +13,8 @@ This code is shared for reference. For reuse, adaptation, or collaboration, plea
 │   	└── PET_Latest/
 │			   │ 
 │			   ├── README.md
-│			   ├──1_Check_PET_Inventory.py											# Returns log of existing data/IMAGE-IDs located on the server
-│			   ├──2_Process_PET_CSVs.py												# Processes IDA data sheets and returns which PET/T1 IMAGE-ID pairs need to be processed. Utility functions located inside utils/PET_CSV_Wrangling.py. 
+│			   ├──1_Check_PET_Inventory.py											# Returns log of existing data/IMAGE-IDs located on your computer/system
+│			   ├──2_Process_PET_CSVs.py												# Processes the IDA data sheets and returns which PET/T1 IMAGE-ID pairs need to be processed. Utility functions located inside utils/PET_CSV_Wrangling.py. 
 │			   ├──3_Organize_IDA_PET_latest_version.sh								# PET/T1 data organization script
 │			   ├──4_PET_dcm2niix.sh													# Data conversion
 │			   ├──5_Check_Subs_to_Process.sh								        # Generates list of subjects that require processing 
@@ -49,3 +48,13 @@ This code is shared for reference. For reuse, adaptation, or collaboration, plea
 =========================================================================================================
 ```	
 ---
+
+- To run these scripts you may refer to the `Instructions_Scripts.md` file. 
+
+### Code Usage
+This code has been shared for reference. For reuse, adaptation, or collaboration, please reach out.
+
+**Cite as**: 
+- Ganesan, S., Pappas, I. PPG Tau PET (AV-1451) Methods: Processing and Quality Control. Revised 12/03/24. Accessible via the Laboratory of Neuro Imaging (LONI) Imaging Data Archive: https://ida.loni.usc.edu. 
+- Ganesan, S., Pappas, I. PPG Amyloid PET (FBB) Methods: Processing and Quality Control. Revised 12/03/24. Accessible via the Laboratory of Neuro Imaging (LONI) Imaging Data Archive: https://ida.loni.usc.edu.
+
