@@ -1,7 +1,3 @@
-## REQUIREMENTS
-- You will require access to compute9.q in order to submit all QSUB scripts. Make sure you have access and are logged into the appropriate nodes (c2001, c2002, c2003, c2004).
-- Before running any python scripts, kindly source the env here: `conda activate /cfs/loni/faculty/ipappas/pappaslab/suchita/Tools/PPG_PET_env`: Python version should be atleast 3.9 and pandas version at least 2.2.2. SG_environment.yml is located inside /cfs/loni/faculty/ipappas/pappaslab/suchita/Tools/ if you want to rebuild. 
-
 ## Step-Wise Description of PPG USC PET Processing Pipeline
 
 ## 1_Check_PET_Inventory.py
@@ -16,13 +12,13 @@
 
 # Terminal Output 
 
-Checking existing data inside: /cfs/loni/faculty/ipappas/pappaslab/suchita/PPG/Raw_IDA_Downloads/PET/PPG
-CSV file has been saved to /cfs/loni/faculty/ipappas/pappaslab/suchita/PPG/Data_Pull_CSVs/PET/Existing_Data/PET_Inventory.csv
-Image IDs saved to /cfs/loni/faculty/ipappas/pappaslab/suchita/PPG/Data_Pull_CSVs/PET/Existing_Data/Existing_PET_Image_IDs.txt
+Checking existing data inside: /path/to/data/Raw_IDA_Downloads/PET/PPG
+CSV file has been saved to /path/to/data/Data_Pull_CSVs/PET/Existing_Data/PET_Inventory.csv
+Image IDs saved to /path/to/data/Data_Pull_CSVs/PET/Existing_Data/Existing_PET_Image_IDs.txt
 
 ...
 
-/cfs/loni/faculty/ipappas/pappaslab/suchita/PPG/ 
+/path/to/data/ 
 │					
 ├── Data_Pull_CSVs/                                    
 │   	└──PET/
@@ -52,7 +48,7 @@ Image IDs saved to /cfs/loni/faculty/ipappas/pappaslab/suchita/PPG/Data_Pull_CSV
 
 ```bash
 
-/cfs/loni/faculty/ipappas/pappaslab/suchita/PPG/ 
+/path/to/data/ 
 │					
 ├── Data_Pull_CSVs/                                    
 │   	└──PET/
@@ -79,13 +75,13 @@ optional arguments:
   -h, --help            show this help message and exit
   --raw_data_csv_path 	RAW_DATA_CSV_PATH
                         Please pull the raw data csv from the IDA and store/source it from here:
-                        /cfs/loni/faculty/ipappas/pappaslab/suchita/PPG/Data_Pull_CSVs/PET/Raw_IDA_CSV/{PET_pull_USC_date}.csv
+                        /path/to/data/Data_Pull_CSVs/PET/Raw_IDA_CSV/{PET_pull_USC_date}.csv
   --date_ran DATE_RAN   Please enter a date string for output folder/file names (format: MM_DD_YYYY).
 
 
 Example Call:
 python 2_Process_PET_CSVs.py \
---raw_data_csv_path /cfs/loni/faculty/ipappas/pappaslab/suchita/PPG/Data_Pull_CSVs/PET/Raw_IDA_CSV/PET_pull_USC_42925_4_29_2025.csv \
+--raw_data_csv_path /path/to/data/Data_Pull_CSVs/PET/Raw_IDA_CSV/PET_pull_USC_42925_4_29_2025.csv \
 --date_ran 08_23_2025
   
 
@@ -94,7 +90,7 @@ python 2_Process_PET_CSVs.py \
 Have you completed running the latest PET image inventory check? (yes/no): yes
 PET inventory check completed: yes
 Date entered: 08_23_2025
-Path to latest PET imaging data csv: /cfs/loni/faculty/ipappas/pappaslab/suchita/PPG/Data_Pull_CSVs/PET/Raw_IDA_CSV/PET_pull_USC_42925_4_29_2025.csv
+Path to latest PET imaging data csv: /path/to/data/Data_Pull_CSVs/PET/Raw_IDA_CSV/PET_pull_USC_42925_4_29_2025.csv
 
 CHECKING NUM OF SUBJECTS IN EACH GROUP
 Total subs tau: 95
@@ -108,11 +104,11 @@ Total number of T1 images across stand-alone-Tau + stand-alone-Amyloid + Amyloid
 Total number of images (sum): 355
 
 Number of images logged in PET_Server_Log_Summary spreadsheet: 355
-New image IDs written to /cfs/loni/faculty/ipappas/pappaslab/suchita/PPG/Data_Pull_CSVs/PET/Processed_CSVs/{date}/PET_Server_Image_IDs_{date}_new.txt
+New image IDs written to /path/to/data/Data_Pull_CSVs/PET/Processed_CSVs/{date}/PET_Server_Image_IDs_{date}_new.txt
 
 .... You should see this....
 
-/cfs/loni/faculty/ipappas/pappaslab/suchita/PPG/ 
+/path/to/data/ 
 │					
 ├── Data_Pull_CSVs/                                    
 │   	└──PET/
@@ -143,7 +139,7 @@ New image IDs written to /cfs/loni/faculty/ipappas/pappaslab/suchita/PPG/Data_Pu
 
 ```bash
 
-/cfs/loni/faculty/ipappas/pappaslab/suchita/PPG/ 
+/path/to/data/ 
 │
 ├──Raw_IDA_Downloads
 │		└── PET ---------> PASTE AND UNZIP HERE
@@ -181,7 +177,7 @@ Either runs dcm2niix or prints.."Skipping {path} NIfTI file already exists."
 
 # Folders should be populated as below
 
-/cfs/loni/faculty/ipappas/pappaslab/suchita/PPG/     
+/path/to/data/     
 ├──PPG_Data_Organized
 │		└──PET
 │			├──Has_Amyloid
@@ -221,7 +217,7 @@ find . -maxdepth 3 -type d
 5. If you find duplicate or additional T1s for any subject that has been already processed, check all output derivative directories to ensure the correct T1 image was pulled and processed (this will be logged across FreeSurfer and SUIT logs). If you find a discrepancy - make a note and reprocess that subject, push incorrect derivatives into an "old" folder. Never delete. 
 
 ```bash
-/cfs/loni/faculty/ipappas/pappaslab/suchita/PPG/ 
+/path/to/data/ 
 │					
 ├── Data_Pull_CSVs/                                    
 │   	└──PET/
@@ -244,7 +240,7 @@ find . -maxdepth 3 -type d
 # Example Terminal Output
 
 Enter Date (format: MM_DD_YYYY):08_26_2025
-Check /cfs/loni/faculty/ipappas/pappaslab/suchita/PPG/Data_Pull_CSVs/PET/Processed_CSVs/08_26_2025/Subjects_to_Process_08_26_2025.txt for subjects and visits to process.
+Check /path/to/data/Data_Pull_CSVs/PET/Processed_CSVs/08_26_2025/Subjects_to_Process_08_26_2025.txt for subjects and visits to process.
 
 Logging new subjects and visits missing from PET_Outputs (SUVR) Directory
 Date ran: 08_26_2025
@@ -287,7 +283,7 @@ FreeSurfer output not currently available for {subject_5} at Visit Code: 2 with 
 # After this runs you should see the PET-Freesurfer directory populated as such
 
 
-/cfs/loni/faculty/ipappas/pappaslab/suchita/PPG/ 
+/path/to/data/ 
 ├──PPG_Data_Organized
 │		└──PET				
 │			├──SG_Freesurfer_Outputs_v_7_1
@@ -304,7 +300,7 @@ FreeSurfer output not currently available for {subject_5} at Visit Code: 2 with 
 
 ## 7_QSUB_SUIT.sh
 
-1. In addition to getting Freesurfer data ready, for Tau there is another requirement - the SUIT cerebellar atlas must be warped to native T1 space before it is called and utilized within the main Tau-PET pipeline. It can take around 15-20min to run, which is why we batch process it first. SUIT scripts are located here: `/cfs/loni/faculty/ipappas/pappaslab/suchita/PPG/Scripts/PET_Latest/TAU_Scripts`.
+1. In addition to getting Freesurfer data ready, for Tau there is another requirement - the SUIT cerebellar atlas must be warped to native T1 space before it is called and utilized within the main Tau-PET pipeline. It can take around 15-20min to run, which is why we batch process it first. SUIT scripts are located here: `/path/to/data/Scripts/PET_Latest/TAU_Scripts`.
 2. For Tau PET processing we extract the reference region using the SUIT MATLAB toolbox functions. `SG_process_SUIT_v2.m` does this. 
 3. First edit `7a_Process_SUIT.sh` with the **visit_code** you are processing.
 4. Next edit `7_QSUB_SUIT.sh` with the **subject IDs** to process (recall step 5 : Subjects_to_Process_{date}.txt).
@@ -348,7 +344,7 @@ source $FREESURFER_HOME/SetUpFreeSurfer.sh
 ![](https://gist.github.com/user-attachments/assets/84510fe7-5394-4fd0-a0a3-8c3bd62d0cb7)
 
 - Now getting back to running the code:
-- All Amyloid PET Scripts must be run from inside here: ***`/cfs/loni/faculty/ipappas/pappaslab/suchita/PPG/Scripts/PET_Latest/AMYLOID_Scripts`***
+- All Amyloid PET Scripts must be run from inside here: ***`/path/to/data/Scripts/PET_Latest/AMYLOID_Scripts`***
 - ***Always run the scripts in their numerical order. Do not try to edit/run any of the subscripts via the cmd line.***
 
 - All you need to do from this point is:
@@ -360,7 +356,7 @@ source $FREESURFER_HOME/SetUpFreeSurfer.sh
 	
 ```bash
 
-/cfs/loni/faculty/ipappas/pappaslab/suchita/PPG/   
+/path/to/data/   
 ├── Scripts/                                    
 │   	└── PET_Latest/
 │			   │
@@ -378,7 +374,7 @@ source $FREESURFER_HOME/SetUpFreeSurfer.sh
 
 # PET Processing Logs are Located here
 
-/cfs/loni/faculty/ipappas/pappaslab/suchita/PPG/ 
+/path/to/data/ 
 ├──PPG_Data_Organized
 │		└──PET
 │			├──PET_Processing_Logs
@@ -397,7 +393,7 @@ source $FREESURFER_HOME/SetUpFreeSurfer.sh
 
 ```bash
 
-/cfs/loni/faculty/ipappas/pappaslab/suchita/PPG/ 
+/path/to/data/ 
 ├──PPG_Data_Organized
 │		└──PET
 │			│			 			  		  		 			  		  
@@ -427,24 +423,24 @@ source $FREESURFER_HOME/SetUpFreeSurfer.sh
 optional arguments:
   -h, --help            show this help message and exit
   --PPG_Amyloid_Log_Summary PPG_AMYLOID_LOG_SUMMARY
-                        	Please specify the processed data csv from here: /cfs/loni/faculty/ipappas/pappaslab/suchita/PPG/Data_Pull_CSVs/PET/Processed_CSVs/{date_ran}/PPG_Amyloid_{date_ran}.csv
+                        	Please specify the processed data csv from here: /path/to/data/Data_Pull_CSVs/PET/Processed_CSVs/{date_ran}/PPG_Amyloid_{date_ran}.csv
                         	(SEE OUTPUT OF SCRIPT 2_Process_PET_CSVs.py)
                         	
   --visit_code VISIT_CODE	Please specify the visit_code for which you want to compile Amyloid SUVR results (1/2/3 etc).
   
   --output_csv_path OUTPUT_CSV_PATH   Please specify a dated directory (MM_DD_YYYY) where you want to write SUVR data to (specify path to a new csv/ path to existing csv) located here :
-                        			/cfs/loni/faculty/ipappas/pappaslab/suchita/PPG/PPG_Data_Organized/PET/Results/Amyloid_Latest/date/Compile_SUVRs_Amyloid_Subjects_Latest_date.csv
+                        			/path/to/data/PPG_Data_Organized/PET/Results/Amyloid_Latest/date/Compile_SUVRs_Amyloid_Subjects_Latest_date.csv
 
 
 # Example 
 python 9_Compile_Amyloid_SUVR.py 
---PPG_Amyloid_Log_Summary /cfs/loni/faculty/ipappas/pappaslab/suchita/PPG/Data_Pull_CSVs/PET/Processed_CSVs/08_24_2025/PPG_Amyloid_08_24_2025.csv \
+--PPG_Amyloid_Log_Summary /path/to/data/Data_Pull_CSVs/PET/Processed_CSVs/08_24_2025/PPG_Amyloid_08_24_2025.csv \
 --visit_code 1 \
---output_csv_path /cfs/loni/faculty/ipappas/pappaslab/suchita/PPG/PPG_Data_Organized/PET/Results/Amyloid_Latest/Compile_SUVRs_Amyloid_Subjects_Latest_08_24_2025.csv
+--output_csv_path /path/to/data/PPG_Data_Organized/PET/Results/Amyloid_Latest/Compile_SUVRs_Amyloid_Subjects_Latest_08_24_2025.csv
 
 # You can pass in both visit_code 1 and then 2. All SUVR sets will be appended to the same csv here:
 
-/cfs/loni/faculty/ipappas/pappaslab/suchita/PPG/ 
+/path/to/data/ 
 │	
 ├──PPG_Data_Organized
 │		└──PET
@@ -476,7 +472,7 @@ python 9_Compile_Amyloid_SUVR.py
 
 ## Tau Processing Scripts
 
-- All Tau PET Scripts must be run from inside here: ***`/cfs/loni/faculty/ipappas/pappaslab/suchita/PPG/Scripts/PET_Latest/TAU_Scripts`***
+- All Tau PET Scripts must be run from inside here: ***`/path/to/data/Scripts/PET_Latest/TAU_Scripts`***
 - ***Always run the scripts in their numerical order. Do not try to edit/run any of the subscripts via the cmd line.***
 	
 - ***Step 1: Main Tau PET Script***
@@ -510,7 +506,7 @@ python 9_Compile_Amyloid_SUVR.py
 
 # Main Tau PET Processing Logs are Located here (QSUB_TAU)
 
-/cfs/loni/faculty/ipappas/pappaslab/suchita/PPG/ 
+/path/to/data/ 
 ├──PPG_Data_Organized
 │		└──PET
 │			├──PET_Processing_Logs		
@@ -527,7 +523,7 @@ python 9_Compile_Amyloid_SUVR.py
 
 ```bash
 
-/cfs/loni/faculty/ipappas/pappaslab/suchita/PPG/ 
+/path/to/data/ 
 ├──PPG_Data_Organized
 │		└──PET
 │			├──Has_Tau_derivatives
@@ -557,20 +553,20 @@ Compile Tau-PET SUVR Data PPG USC Subjects - NONWEIGHTED SUVRs.
 optional arguments:
   -h, --help            show this help message and exit
  --PPG_Tau_Log_Summary 	PPG_TAU_LOG_SUMMARY
-                        Please specify the processed data csv from here: /cfs/loni/faculty/ipappas/pappaslab/suchita/PPG/Data_Pull_CSVs/PET/Processed_CSVs/{date_ran}/PPG_Tau_{date_ran}.csv (SEE
+                        Please specify the processed data csv from here: /path/to/data/Data_Pull_CSVs/PET/Processed_CSVs/{date_ran}/PPG_Tau_{date_ran}.csv (SEE
                         OUTPUT OF SCRIPT 2_Process_PET_CSVs.py)
                         
   --visit_code VISIT_CODE	Please specify the visit_code for which you want to compile Tau SUVR results (1/2/3 etc).
   
   --output_csv_path 	OUTPUT_CSV_PATH
                         Please specify a dated directory (MM_DD_YYYY) where you want to write SUVR data to (specify path to a new csv/ path to existing csv) located here :
-                        /cfs/loni/faculty/ipappas/pappaslab/suchita/PPG/PPG_Data_Organized/PET/Results/Tau_Latest/Tau_Nonweighted/{date_ran}/Compile_SUVRs_Tau_Subjects_Latest_NonAdjusted_{date_ran}.csv
+                        /path/to/data/PPG_Data_Organized/PET/Results/Tau_Latest/Tau_Nonweighted/{date_ran}/Compile_SUVRs_Tau_Subjects_Latest_NonAdjusted_{date_ran}.csv
 
 Example call:
 
-python 10_Compile_Tau_SUVR_Nonweighted.py --PPG_Tau_Log_Summary /cfs/loni/faculty/ipappas/pappaslab/suchita/PPG/Data_Pull_CSVs/PET/Processed_CSVs/08_24_2025/PPG_Tau_08_24_2025.csv \
+python 10_Compile_Tau_SUVR_Nonweighted.py --PPG_Tau_Log_Summary /path/to/data/Data_Pull_CSVs/PET/Processed_CSVs/08_24_2025/PPG_Tau_08_24_2025.csv \
 --visit_code 1 \
---output_csv_path /cfs/loni/faculty/ipappas/pappaslab/suchita/PPG/PPG_Data_Organized/PET/Results/Tau_Latest/Tau_Nonweighted/Compile_SUVRs_Tau_Subjects_Latest_NonAdjusted_08_24_2025.csv
+--output_csv_path /path/to/data/PPG_Data_Organized/PET/Results/Tau_Latest/Tau_Nonweighted/Compile_SUVRs_Tau_Subjects_Latest_NonAdjusted_08_24_2025.csv
 
 .....You can pass in visit_code 1 and then 2. All SUVR sets will be appended to the same csv here:
 
@@ -585,8 +581,8 @@ python 10_Compile_Tau_SUVR_Nonweighted.py --PPG_Tau_Log_Summary /cfs/loni/facult
 ```
 
 - ***Step 3: Compile Volume-weighted SUVRs***
-	- `11_asegstatscheat_SUVR_N_Volume.sh` extracts the FreeSurfer stats from each subject's .stats file using the `asegstats2table` cmd. This script draws from a subject list specified inside `/cfs/loni/faculty/ipappas/pappaslab/suchita/PPG/PPG_Data_Organized/PET/Results/Tau_Latest/Tau_Volume_Weighted/Subject_Lists/subjects_${visit_code}.txt`. 
-	- Before you run script 11, paste the **all subject IDs available for Tau for a particular visit code** and save it as subjects_${visit_code}.txt. (eg subjects_1.txt, subjects_2.txt etc). You can pick up the list of subs/per vist using the latest log you generated from step 2: `/cfs/loni/faculty/ipappas/pappaslab/suchita/PPG/Data_Pull_CSVs/PET/Processed_CSVs/{date_ran}/PPG_Tau_{date_ran}.csv`
+	- `11_asegstatscheat_SUVR_N_Volume.sh` extracts the FreeSurfer stats from each subject's .stats file using the `asegstats2table` cmd. This script draws from a subject list specified inside `/path/to/data/PPG_Data_Organized/PET/Results/Tau_Latest/Tau_Volume_Weighted/Subject_Lists/subjects_${visit_code}.txt`. 
+	- Before you run script 11, paste the **all subject IDs available for Tau for a particular visit code** and save it as subjects_${visit_code}.txt. (eg subjects_1.txt, subjects_2.txt etc). You can pick up the list of subs/per vist using the latest log you generated from step 2: `/path/to/data/Data_Pull_CSVs/PET/Processed_CSVs/{date_ran}/PPG_Tau_{date_ran}.csv`
 	- Next run `./11_asegstatscheat_SUVR_N_Volume.sh --visits "1, 2" --date MM_DD_YYYY`. This generates suvr and volume txt files for all visit codes you specify in the input argument. If you run into errors specify `-h`. 
 	- Next we run `python 12_Compile_Tau_FS_stats_SUVR.py --date_ran MM_DD_YYYY --visit_code_list 1,2` 
 		- This script does the following
@@ -649,7 +645,5 @@ python 10_Compile_Tau_SUVR_Nonweighted.py --PPG_Tau_Log_Summary /cfs/loni/facult
 │											└──TAU_READY_4_IDA_cleaned_{DATE}.csv			# Cleaned/Formatted CSV for IDA - Use for IDA , Contains Volume Weighted + Standard Non-weighted results in 1 sheet
 │
 ```
-## IMPORTANT: Regarding Pipeline Updates
-Please check with your current supervisor on what ROIs you want to continue to process and release. Eg: `The more recent ADNI protocols have shifted away from deriving Braak ROIs for Tau-PET`. Make it a point to have a discussion on what aspects of the amyloid/tau pipelines require revision and update them. Please remember to consult recent literature and updated imaging protocols published by ADNI. For current protocols being utilized check our March SOPs. Version control must extend to code and data - document by creating new gists/github repos. When releasing data produced through revised-pipelines, explicitly state changes in `updated SOPs`. If you ever catch mistakes in previously processed/released data, state which subjects were reprocessed if any.  
 
 ##### Documentation by: Suchita Ganesan, Date: 08/29/2025
