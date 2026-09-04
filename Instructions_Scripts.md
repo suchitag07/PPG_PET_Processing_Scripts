@@ -62,7 +62,7 @@ Image IDs saved to /path/to/data/Data_Pull_CSVs/PET/Existing_Data/Existing_PET_I
 ```
 5. Run `2_Process_PET_CSVs.py`. 
 
-Note: Information regarding utility functions called in `2_Process_PET_CSVs.py` can be found here: https://gist.github.com/suchitag07/8e81fa8ef646e246fc89a516eee1ab9c 
+Note: Information regarding utility functions called in `2_Process_PET_CSVs.py` can be found here: https://github.com/suchitag07/PPG_PET_Processing_Scripts/blob/main/utils/READMEUTILS.md
 
 ```bash
 
@@ -338,10 +338,6 @@ source $FREESURFER_HOME/SetUpFreeSurfer.sh
 	- The Desikan-Killiany atlas is used to extract regions of interest (ROIs) for the frontal, lateral parietal, lateral temporal, and anterior-posterior cingulate areas.
 	- Using the Advanced Normalization Toolbox (ANTs), each ROI and the reference region is registered to PET space for uptake analysis. 
 	- Standardized uptake value ratios (SUVRs) are calculated by dividing the mean uptake in each ROI by the whole cerebellum, with a composite SUVR used as a global measure of amyloid burden. Amyloid status is determined based on thresholds established by the UC Berkeley ADNI protocol, with a composite SUVR of ≥1.08 indicating amyloid positivity.
-
-- Just to give you an idea, here is a visual summary of the processing steps outlined in the main pipeline/script `7_SG_Amyloid_PET.sh`.
-
-![](https://gist.github.com/user-attachments/assets/84510fe7-5394-4fd0-a0a3-8c3bd62d0cb7)
 
 - Now getting back to running the code:
 - All Amyloid PET Scripts must be run from inside here: ***`/path/to/data/Scripts/PET_Latest/AMYLOID_Scripts`***
