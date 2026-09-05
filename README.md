@@ -58,7 +58,7 @@ PPG_PET_Processing_Scripts
 ---
 
 ### Code Usage
-This code has been shared for reference. If you have any questions related to reuse/adaptation, please reach out to either me (suchita.ganesan@gmail.com) or Dr. Ioannis Pappas. 
+This code has been shared for reference. If you have any questions related to reuse/adaptation, please reach out to either me or Dr. Ioannis Pappas. 
 
 ***Citation format for our code/protocols***: 
 - *Ganesan, S., Pappas, I. PPG Tau PET (AV-1451) Methods: Processing and Quality Control. Revised 12/03/24. Accessible via the Laboratory of Neuro Imaging (LONI) Imaging Data Archive: https://ida.loni.usc.edu*
