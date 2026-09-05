@@ -14,19 +14,19 @@
 ```bash
 								OVERVIEW OF PPG PET PIPELINE SCRIPTS
 =========================================================================================================
-## Scripts																			# Purpose
+## Scripts																		   # Purpose
 PPG_PET_Processing_Scripts
 │			   │
 │              ├──README.md
 │              ├──Instructions_Scripts.md
 │              │
 │			   ├──Data_Prep
-│			   │	├──1_Check_PET_Inventory.py											# Returns log of existing data/IMAGE-IDs located on your computer/system
-│			   │	├──2_Process_PET_CSVs.py											# Processes the IDA data sheets and returns which PET/T1 IMAGE-ID pairs need to be processed. Utility functions located inside utils/PET_CSV_Wrangling.py. 
-│			   │	├──3_Organize_IDA_PET_latest_version.sh								# PET/T1 data organization script
-│			   │	├──4_PET_dcm2niix.sh												# Data conversion
-│			   │	├──5_Check_Subs_to_Process.sh								        # Generates list of subjects that require processing 
-│			   │	└──6_Copy_FreeSurfer_parcellations.sh							    # Pulls FreeSurfer dependencies 
+│			   │	├──1_Check_PET_Inventory.py										# Returns log of existing data/IMAGE-IDs located on your computer/system
+│			   │	├──2_Process_PET_CSVs.py										# Processes the IDA data sheets and returns which PET/T1 IMAGE-ID pairs need to be processed. Utility functions located inside utils/PET_CSV_Wrangling.py. 
+│			   │	├──3_Organize_IDA_PET_latest_version.sh							# PET/T1 data organization script
+│			   │	├──4_PET_dcm2niix.sh											# Data conversion
+│			   │	├──5_Check_Subs_to_Process.sh								    # Generates list of subjects that require processing 
+│			   │	└──6_Copy_FreeSurfer_parcellations.sh							# Pulls FreeSurfer dependencies 
 │			   │
 │			   ├──AMYLOID_Scripts
 │			   │	├──Amyloid_Dictionary.json										# Used to harmonize columns for IDA CSV. Utlized inside 9_Compile_Amyloid_SUVR.py.
