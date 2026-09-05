@@ -1,5 +1,14 @@
 ## Step-Wise Description of PPG USC PET Processing Pipeline
 
+## Data
+- All PET and MRI data can be downloaded via the LONI IDA PPG project using the advanced search builder.
+```
+# Relevant Scans
+-  'Accelerated Sagittal MPRAGE'		# T1 scan
+-  'AA-APOE_TAU (AC)'					# Tau-PET scan (FTP)
+-  'AA-APOE_AMYLOID (AC)'				# Amyloid-PET scan (FBB)
+```
+
 ## 1_Check_PET_Inventory.py
 
 - Before we pull data from the IDA, we must cross check which images currently reside on our server so as to avoid pulling/uploading redundant imaging data. This script reads the scan dates/IMAGE IDs for our existing subjects and appends this information to a log which will be utilized for subsequent organization. 
