@@ -16,14 +16,17 @@
 =========================================================================================================
 ## Scripts																			# Purpose
 PPG_PET_Processing_Scripts
-│			   │ 
+│			   │
+│              ├──README.md
+│              ├──Instructions_Scripts.md
+│              │
 │			   ├──Data_Prep
 │			   │	├──1_Check_PET_Inventory.py											# Returns log of existing data/IMAGE-IDs located on your computer/system
 │			   │	├──2_Process_PET_CSVs.py											# Processes the IDA data sheets and returns which PET/T1 IMAGE-ID pairs need to be processed. Utility functions located inside utils/PET_CSV_Wrangling.py. 
 │			   │	├──3_Organize_IDA_PET_latest_version.sh								# PET/T1 data organization script
-│			   │	├──4_PET_dcm2niix.sh													# Data conversion
+│			   │	├──4_PET_dcm2niix.sh												# Data conversion
 │			   │	├──5_Check_Subs_to_Process.sh								        # Generates list of subjects that require processing 
-│			   │	├──6_Copy_FreeSurfer_parcellations.sh							    # Pulls FreeSurfer dependencies 
+│			   │	└──6_Copy_FreeSurfer_parcellations.sh							    # Pulls FreeSurfer dependencies 
 │			   │
 │			   ├──AMYLOID_Scripts
 │			   │	├──Amyloid_Dictionary.json										# Used to harmonize columns for IDA CSV. Utlized inside 9_Compile_Amyloid_SUVR.py.
@@ -37,7 +40,7 @@ PPG_PET_Processing_Scripts
 │			   │	├──Tau_ROIs.json												# Used for calculation of volume weighted SUVRs (Dictionary of FreeSurfer codes for each Braak ROI). Utilized inside 12_Compile_Tau_FS_stats_SUVR.py
 │			   │	├──Create_ADNI_Tau_ROIs.sh					                    # Subscript called inside main Tau Pipeline
 │			   │	├──SG_process_SUIT_v2.m											# MATLAB function to extract reference region from the SUIT Atlas
-│			   │	├──7a_Process_SUIT.sh											# Calls SUIT function - can run from the cmd line or via QSUB/Serial process 									
+│			   │	├──7a_Process_SUIT.sh											# Calls SUIT function - can run from the cmd line or via QSUB/Serial process 				
 │			   │	├──7_QSUB_SUIT.sh																					
 │			   │	├──8_SG_Tau_PET.sh												# Main Tau Pipeline called inside QSUB script and Serial_Process script. Two sets of SUVRs are generated from this script: 1) Standard Nonweighted Tau SUVRs for Braak ROIs 2) SUVRs for all freesurfer wide regions (mri_segstats)
 │			   │	├──9_QSUB_TAU.sh
