@@ -1,11 +1,13 @@
 ### PPG PET Pipeline Instructions: Amyloid (FBB) and Tau-PET (FTP)
 
-- This document contains step-by-step instructions for processing Amyloid (FBB) and Tau (FTP) PET data provided by the USC PPG cohort (data available on the LONI IDA database). The pipeline covers inventory, organization, preprocessing, and the calculation of PET SUVRs. All script call locations, required inputs, expected outputs, and directory structures are described in detail.
-- Both the amyloid and tau PET pipelines described here follow the ADNI standard protocols (also accessible via the LONI IDA):
+- This repository contains step-by-step instructions for processing Amyloid (FBB) and Tau (FTP) PET data provided by the USC PPG cohort (data available on the LONI IDA database). The pipeline covers inventory, organization, preprocessing, and the calculation of PET SUVRs. All script call locations, required inputs, expected outputs, and directory structures are described in detail.
+- All scripts were written and troubleshooted across the period of July 2024 - August 2025 under the supervision of Dr. Ioannis Pappas.
+- To run these scripts you may refer to the `Instructions_Scripts.md` file.
+- We have provided documentation explaining our pipelines inside the `Docs` folder.
+
+- Note: Both the amyloid and tau PET pipelines described here are similar in logic to the ADNI standard protocols (also accessible via the LONI IDA):
 	- *Landau, S., Ward, T. J., Murphy, A., & Jagust, W. Flortaucipir (AV-1451) processing methods.https://adni.bitbucket.io/reference/docs/UCBERKELEYAV1451/UCBERKELEY_AV1451_Methods_2021-01-14.pdf*
 	- *Landau, S., Murphy, A., Ward, T., & Jagust, W. Florbetaben (FBB) processing methods.https://adni.bitbucket.io/reference/docs/UCBERKELEYFBB/UCBerkeley_FBB_Methods_01.14.21.pdf*
-
-- Note: These scripts were written and troubleshooted across the period of July 2024 - August 2025 under the supervison of Dr. Ioannis Pappas. 
 
 ### Pipeline Scripts Overview
 
@@ -52,8 +54,6 @@
 =========================================================================================================
 ```	
 ---
-
-- To run these scripts you may refer to the `Instructions_Scripts.md` file. 
 
 ### Code Usage
 This code has been shared for reference. If you have any questions related to reuse/adaptation, please reach out to either me (suchita.ganesan@gmail.com) or Dr. Ioannis Pappas. 
